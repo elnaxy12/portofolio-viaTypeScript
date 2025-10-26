@@ -1,4 +1,6 @@
 import Image from "next/image";
+import SplitText from "@/components/SplitText";
+import BlurText from "@/components/BlurText";
 
 export default function Home() {
   return (
@@ -12,6 +14,28 @@ export default function Home() {
           height={38}
           priority
         />
+        <div className="flex justify-center w-full flex-col text-center">
+          <SplitText
+            text="Hello, World!"
+            className="text-2xl font-semibold text-center"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
+          <BlurText 
+            className="text-2xl mb-8 justify-center"
+            text="Isn't this so cool?!"
+            delay={150}
+            animateBy="words"
+            direction="top"
+          />
+        </div>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "}

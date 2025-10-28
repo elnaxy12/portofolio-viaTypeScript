@@ -109,7 +109,7 @@ export default function Home(): JSX.Element {
         </div>
       </div>
       <div id="smooth-content">
-        <div className="absolute top-0 left-0 w-full h-full z-0">
+        <div className="absolute top-0 left-0 w-full h-screen z-0">
           <DarkVeil />
         </div>
         <div className="w-full mx-auto">
@@ -147,6 +147,16 @@ export default function Home(): JSX.Element {
                 </button>
               </div>
             </div>
+            <p
+              className="text-white font-sans justify-center h-screen flex items-center"
+              style={{
+                color: "rgb(39, 30, 55)",
+                fontWeight: "900",
+                fontSize: "clamp(4rem, 6vw, 4rem)",
+              }}
+            >
+              SCROLL DOWN
+            </p>
 
             <div className="container mx-auto h-screen relative flex items-center">
               <ScrollFloat
@@ -156,7 +166,7 @@ export default function Home(): JSX.Element {
                 scrollEnd="bottom bottom-=40%"
                 stagger={0.03}
               >
-                <div className="container flex flex-col items-center">
+                <div className="container flex w-full flex-col items-center">
                   <div className="container mx-auto">
                     <AppLogoLoop />
                   </div>
@@ -217,78 +227,97 @@ export default function Home(): JSX.Element {
                 delay={0.3}
               >
                 <div className="container w-full mx-auto">
-                  <div className="flex justify-center gap-10 cursor-default select-none">
-                    <SpotlightCard
-                      className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                      spotlightColor="rgba(6, 0, 16, 0.5)"
-                    >
-                      <div className="flex flex-col w-full justify-center items-center text-center">
-                        <p className="w-full text-base">UI/UX Designer</p>
-                        <span className="text-gray-600 text-xs">
-                          Figma, Canva
-                        </span>
-                      </div>
-                    </SpotlightCard>
-                    <SpotlightCard
-                      className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                      spotlightColor="rgba(6, 0, 16, 0.5)"
-                    >
-                      <div className="flex flex-col w-full justify-center items-center text-center">
-                        <p className="w-full text-base">Web Developer</p>
-                        <span className="text-gray-600 text-xs">
-                          HTML, CSS, JavaScript
-                        </span>
-                      </div>
-                    </SpotlightCard>
-                    <SpotlightCard
-                      className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                      spotlightColor="rgba(6, 0, 16, 0.5)"
-                    >
-                      <div className="flex flex-col w-full justify-center items-center text-center">
-                        <p className="w-full text-base">Fronted Developer</p>
-                        <span className="text-gray-600 text-xs">
-                          React, Tailwind
-                        </span>
-                      </div>
-                    </SpotlightCard>{" "}
-                    <SpotlightCard
-                      className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                      spotlightColor="rgba(6, 0, 16, 0.5)"
-                    >
-                      <div className="flex flex-col w-full justify-center items-center text-center">
-                        <p className="w-full text-base">Full Stack Developer</p>
-                        <span className="text-gray-600 text-xs">
-                          React, Laravel, Node.js, MySQL
-                        </span>
-                      </div>
-                    </SpotlightCard>
+                  <div className="flex justify-center flex-col items-center h-screen gap-10 cursor-default select-none">
+                    <div>
+                      <SplitText
+                        text="✨ My Profession"
+                        className="text-2xl font-semibold text-center text-white"
+                        delay={100}
+                        duration={0.6}
+                        ease="power3.out"
+                        splitType="lines"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                        textAlign="center"
+                      />
+                    </div>
+                    <div className="flex justify-center items-center gap-10">
+                      <SpotlightCard
+                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
+                        spotlightColor="rgba(6, 0, 16, 0.5)"
+                      >
+                        <div className="flex flex-col w-full justify-center items-center text-center">
+                          <p className="w-full text-base">UI/UX Designer</p>
+                          <span className="text-gray-600 text-xs">
+                            Figma, Canva
+                          </span>
+                        </div>
+                      </SpotlightCard>
+                      <SpotlightCard
+                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
+                        spotlightColor="rgba(6, 0, 16, 0.5)"
+                      >
+                        <div className="flex flex-col w-full justify-center items-center text-center">
+                          <p className="w-full text-base">Web Developer</p>
+                          <span className="text-gray-600 text-xs">
+                            HTML, CSS, JavaScript
+                          </span>
+                        </div>
+                      </SpotlightCard>
+                      <SpotlightCard
+                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
+                        spotlightColor="rgba(6, 0, 16, 0.5)"
+                      >
+                        <div className="flex flex-col w-full justify-center items-center text-center">
+                          <p className="w-full text-base">Fronted Developer</p>
+                          <span className="text-gray-600 text-xs">
+                            React, Tailwind
+                          </span>
+                        </div>
+                      </SpotlightCard>{" "}
+                      <SpotlightCard
+                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
+                        spotlightColor="rgba(6, 0, 16, 0.5)"
+                      >
+                        <div className="flex flex-col w-full justify-center items-center text-center">
+                          <p className="w-full text-base">
+                            Full Stack Developer
+                          </p>
+                          <span className="text-gray-600 text-xs">
+                            React, Laravel, Node.js, MySQL
+                          </span>
+                        </div>
+                      </SpotlightCard>
+                    </div>
                   </div>
                 </div>
-
-                <div className="container mx-auto text-center mt-28">
-                  <SplitText
-                    text="Contact Me"
-                    className="text-2xl font-semibold text-center text-white"
-                    delay={100}
-                    duration={0.6}
-                    ease="power3.out"
-                    splitType="lines"
-                    from={{ opacity: 0, y: 40 }}
-                    to={{ opacity: 1, y: 0 }}
-                    threshold={0.1}
-                    rootMargin="-100px"
-                    textAlign="center"
-                  />
-                </div>
-
-                <div
-                  className="container mx-auto w-full mt-12"
-                  style={{ position: "relative" }}
-                >
-                  <GlassIcons
-                    items={items}
-                    className="custom-class max-w-96 text-white"
-                  />
+                <div className="flex flex-col justify-center items-center h-screen">
+                  <div className="container mx-auto text-center mt-28">
+                    <SplitText
+                      text="Contact Me"
+                      className="text-2xl font-semibold text-center text-white"
+                      delay={100}
+                      duration={0.6}
+                      ease="power3.out"
+                      splitType="lines"
+                      from={{ opacity: 0, y: 40 }}
+                      to={{ opacity: 1, y: 0 }}
+                      threshold={0.1}
+                      rootMargin="-100px"
+                      textAlign="center"
+                    />
+                  </div>
+                  <div
+                    className="container mx-auto w-full mt-12"
+                    style={{ position: "relative" }}
+                  >
+                    <GlassIcons
+                      items={items}
+                      className="custom-class text-white"
+                    />
+                  </div>
                 </div>
               </AnimatedContent>
             </div>

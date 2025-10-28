@@ -44,7 +44,7 @@ const imageLogos = [
 
 export default function AppLogoLoop() {
   return (
-    <div style={{display: "flex", alignContent: "center", height: "100%", position: "relative", overflow: "hidden", color: "white" }}>
+    <div style={{display: "flex", justifyContent: "center", alignContent: "center", width: "100", height: "100%", position: "relative", overflow: "hidden", color: "white" }}>
       <LogoLoop
         logos={techLogos}
         speed={120}

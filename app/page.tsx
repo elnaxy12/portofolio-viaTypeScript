@@ -86,25 +86,20 @@ export default function Home(): JSX.Element {
     >
       <div className="z-10 fixed top-0 left-0 w-screen mx-auto h-40 flex items-center justify-around font-sans text-white">
         <div
-          className="bg-[#060010]/5 flex items-center justify-between w-[90%]"
+          className="bg-[#060010]/5 flex backdrop-blur-md items-center justify-between w-[90%]"
           style={{
-            backdropFilter: "blur(4px)",
-            WebkitBackdropFilter: "blur(4px)",
             borderRadius: "15px",
             padding: "20px",
             boxShadow: "0 10px 40px rgba(0, 0, 0, 0.15)",
+            border: "1px solid rgba(39, 30, 55, 0.5)",
           }}
         >
           <p className="text-3xl font-semibold cursor-pointer select-none">
             Gilang Arya
           </p>
           <div className="flex items-center gap-10 select-none">
-            <a className="text-xl cursor-pointer" href="">
-              Beranda
-            </a>
-            <a className="text-xl cursor-pointer" href="">
-              Contact
-            </a>
+            <ShinyText text="Home" speed={5} className="custom-class" />
+            <ShinyText text="About" speed={5} className="custom-class" />
           </div>
         </div>
       </div>

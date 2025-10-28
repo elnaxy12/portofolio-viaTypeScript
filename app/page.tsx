@@ -8,6 +8,7 @@ import AppLogoLoop from "@/components/AppLogoLoop";
 import ClickSpark from "@/components/ClickSpark";
 import GlassIcons from "@/components/GlassIcons";
 import SplitText from "@/components/SplitText";
+import ScrollFloat from "@/components/ScrollFloat";
 import {
   FaGithub,
   FaDiscord,
@@ -104,7 +105,7 @@ export default function Home() {
                 }}
               >
                 <ShinyText
-                  text="✨ Welcome!"
+                  text="✨ Contact Me!"
                   speed={5}
                   className="custom-class"
                 />
@@ -112,19 +113,32 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="container mx-auto">
-            <AppLogoLoop />
-          </div>
-          <div className="container mx-auto flex  justify-center text-justify">
-            <ScrambledText
-              className="scrambled-text-demo text-xs cursor-default"
-              radius={100}
-              duration={1.2}
-              speed={0.5}
-              scrambleChars=".:"
+          <div className="container mx-auto relative h-screen flex items-center">
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
             >
-              "Powered by React Bits, TypeScript, Next JS, and Tailwind CSS."
-            </ScrambledText>
+              <div className="container flex flex-col items-center">
+                <div className="container mx-auto">
+                  <AppLogoLoop />
+                </div>
+                <div className="container mx-auto flex  justify-center text-justify">
+                  <ScrambledText
+                    className="scrambled-text-demo text-xs cursor-default"
+                    radius={100}
+                    duration={1.2}
+                    speed={0.5}
+                    scrambleChars=".:"
+                  >
+                    "Powered by React Bits, TypeScript, Next JS, and Tailwind
+                    CSS."
+                  </ScrambledText>
+                </div>
+              </div>
+            </ScrollFloat>
           </div>
 
           <div>
@@ -182,7 +196,7 @@ export default function Home() {
                     <div className="flex flex-col w-full justify-center items-center text-center">
                       <p className="w-full text-base">Full Stack Developer</p>
                       <span className="text-gray-600 text-xs">
-                        React, Node.js, MySQL
+                        React, Laravel, Node.js, MySQL
                       </span>
                     </div>
                   </SpotlightCard>
@@ -191,7 +205,7 @@ export default function Home() {
 
               <div className="container mx-auto text-center mt-28">
                 <SplitText
-                  text="Follow My Social Media"
+                  text="Contact Me"
                   className="text-2xl font-semibold text-center text-white"
                   delay={100}
                   duration={0.6}

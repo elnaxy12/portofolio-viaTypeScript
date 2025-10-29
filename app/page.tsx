@@ -4,63 +4,15 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import BlurText from "@/components/BlurText";
 import ShinyText from "@/components/ShinyText";
-import SpotlightCard from "@/components/SpotlightCard";
 import DarkVeil from "@/components/DarkVeil";
-import AnimatedContent from "@/components/AnimatedContent";
 import ScrambledText from "@/components/ScrambledText";
 import AppLogoLoop from "@/components/AppLogoLoop";
 import ClickSpark from "@/components/ClickSpark";
-import GlassIcons from "@/components/GlassIcons";
-import SplitText from "@/components/SplitText";
 import ScrollFloat from "@/components/ScrollFloat";
 import ScrollReveal from "@/components/ScrollReveal";
-import {
-  FaGithub,
-  FaDiscord,
-  FaFacebook,
-  FaInstagram,
-  FaEnvelope,
-  FaWhatsapp,
-} from "react-icons/fa";
-
-const items = [
-  {
-    icon: <FaGithub />,
-    color: "#333",
-    label: "GitHub",
-    href: "https://github.com/namamu",
-  },
-  {
-    icon: <FaDiscord />,
-    color: "#5865F2",
-    label: "Discord",
-    href: "https://discord.gg/namaserver",
-  },
-  {
-    icon: <FaFacebook />,
-    color: "#1877F2",
-    label: "Facebook",
-    href: "https://facebook.com/namamu",
-  },
-  {
-    icon: <FaInstagram />,
-    color: "#E4405F",
-    label: "Instagram",
-    href: "https://instagram.com/namamu",
-  },
-  {
-    icon: <FaEnvelope />,
-    color: "#EA4335",
-    label: "Email",
-    href: "mailto:namamu@email.com",
-  },
-  {
-    icon: <FaWhatsapp />,
-    color: "#25D366",
-    label: "WhatsApp",
-    href: "https://wa.me/6281234567890",
-  },
-];
+import FadeContent from "@/components/FadeContent";
+import CardSwap, { Card } from "@/components/CardSwap";
+import SplitText from "@/components/SplitText";
 
 export default function Home(): JSX.Element {
   useEffect(() => {
@@ -98,8 +50,16 @@ export default function Home(): JSX.Element {
             Gilang Arya
           </p>
           <div className="flex items-center gap-10 select-none">
-            <ShinyText text="Home" speed={5} className="custom-class" />
-            <ShinyText text="About" speed={5} className="custom-class" />
+            <ShinyText
+              text="Home"
+              speed={5}
+              className="custom-class cursor-pointer"
+            />
+            <ShinyText
+              text="About"
+              speed={5}
+              className="custom-class cursor-pointer"
+            />
           </div>
         </div>
       </div>
@@ -142,43 +102,102 @@ export default function Home(): JSX.Element {
                 </button>
               </div>
             </div>
-            <p
-              className="text-white font-sans justify-center h-screen flex items-center"
-              style={{
-                color: "rgb(39, 30, 55)",
-                fontWeight: "900",
-                fontSize: "clamp(4rem, 6vw, 4rem)",
-              }}
-            >
-              SCROLL DOWN
-            </p>
 
-            <div className="container mx-auto h-screen relative flex items-center">
-              <ScrollFloat
-                animationDuration={1}
-                ease="back.inOut(2)"
-                scrollStart="center bottom+=50"
-                scrollEnd="bottom bottom-=40%"
-                stagger={0.03}
+            <div className="h-full flex relative flex-col items-center">
+              <p
+                className="text-white font-sans h-screen justify-center flex items-center"
+                style={{
+                  color: "rgb(39, 30, 55)",
+                  fontWeight: "900",
+                  fontSize: "clamp(4rem, 6vw, 4rem)",
+                }}
               >
-                <div className="container flex w-full flex-col items-center">
-                  <div className="container mx-auto">
-                    <AppLogoLoop />
+                SCROLL DOWN
+              </p>
+
+              <div className="container mx-auto h-screen relative flex items-center">
+                <ScrollFloat
+                  animationDuration={1}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                >
+                  <div className="container flex w-full flex-col items-center">
+                    <div className="container mx-auto">
+                      <AppLogoLoop />
+                    </div>
+                    <div className="container mx-auto flex  justify-center text-justify">
+                      <ScrambledText
+                        className="scrambled-text-demo text-xs cursor-default"
+                        radius={100}
+                        duration={1.2}
+                        speed={0.5}
+                        scrambleChars=".:"
+                      >
+                        "Powered by React Bits, TypeScript, Next JS, and
+                        Tailwind CSS."
+                      </ScrambledText>
+                    </div>
                   </div>
-                  <div className="container mx-auto flex  justify-center text-justify">
-                    <ScrambledText
-                      className="scrambled-text-demo text-xs cursor-default"
-                      radius={100}
-                      duration={1.2}
-                      speed={0.5}
-                      scrambleChars=".:"
-                    >
-                      "Powered by React Bits, TypeScript, Next JS, and Tailwind
-                      CSS."
-                    </ScrambledText>
+                </ScrollFloat>
+              </div>
+
+              <div className="container w-full flex flex-col">
+                <ScrollFloat
+                  animationDuration={1}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                >
+                  <div className="min-h-screen flex">
+                    <div className="text-white flex flex-col items-center justify-center w-full mb-8">
+                      <SplitText
+                        text="Biggest Project"
+                        className="text-4xl font-semibold text-center h-[50px]"
+                        delay={100}
+                        duration={0.6}
+                        ease="power3.out"
+                        splitType="lines"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                        textAlign="center"
+                      />
+                      <p
+                        className="mt-2 text-[11px] text-center"
+                        style={{ color: "rgba(161, 148, 184, 0.7)" }}
+                      >
+                        Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
+                      </p>
+                    </div>
+
+                    <div className="w-full flex justify-center items-center">
+                      <CardSwap
+                        cardDistance={60}
+                        verticalDistance={70}
+                        delay={5000}
+                        pauseOnHover={false}
+                      >
+                        <Card>
+                          <h3 className="text-lg font-semibold">Card 1</h3>
+                          <p>Your content here</p>
+                        </Card>
+                        <Card>
+                          <h3 className="text-lg font-semibold">Card 2</h3>
+                          <p>Your content here</p>
+                        </Card>
+                        <Card>
+                          <h3 className="text-lg font-semibold">Card 3</h3>
+                          <p>Your content here</p>
+                        </Card>
+                      </CardSwap>
+                    </div>
                   </div>
-                </div>
-              </ScrollFloat>
+                </ScrollFloat>
+              </div>
             </div>
 
             <div className="w-full mx-auto text-white">
@@ -208,114 +227,59 @@ export default function Home(): JSX.Element {
               </ScrollReveal>
             </div>
 
-            <div className="container mx-auto mt-[10pc]">
-              <AnimatedContent
-                distance={150}
-                direction="vertical"
-                reverse={false}
-                duration={1.2}
-                ease="power3.out"
-                initialOpacity={0.2}
-                animateOpacity
-                scale={1.1}
-                threshold={0.2}
-                delay={0.3}
+            <FadeContent
+              blur={true}
+              duration={1000}
+              easing="ease-out"
+              initialOpacity={0}
+            >
+              <footer
+                className="container mx-auto pb-5 pt-3"
+                style={{ borderTop: "1px solid rgba(39, 30, 55, 0.5)" }}
               >
-                <div className="container w-full mx-auto">
-                  <div className="flex justify-center flex-col items-center h-screen gap-10 cursor-default select-none">
+                <div className="flex justify-between text-white">
+                  <div>
+                    <p className="text-xl">Gilang Arya Leksana</p>
                     <div>
-                      <SplitText
-                        text="✨ My Profession"
-                        className="text-2xl font-semibold text-center text-white"
-                        delay={100}
-                        duration={0.6}
-                        ease="power3.out"
-                        splitType="lines"
-                        from={{ opacity: 0, y: 40 }}
-                        to={{ opacity: 1, y: 0 }}
-                        threshold={0.1}
-                        rootMargin="-100px"
-                        textAlign="center"
-                      />
+                      <ScrambledText
+                        className="scrambled-text-demo text-xs cursor-default"
+                        radius={100}
+                        duration={1.2}
+                        speed={0.5}
+                        scrambleChars=".:"
+                      >
+                        "Powered by React Bits, TypeScript, Next JS, and
+                        Tailwind CSS."
+                      </ScrambledText>
                     </div>
-                    <div className="flex justify-center items-center gap-10">
-                      <SpotlightCard
-                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                        spotlightColor="rgba(6, 0, 16, 0.5)"
-                      >
-                        <div className="flex flex-col w-full justify-center items-center text-center">
-                          <p className="w-full text-base">UI/UX Designer</p>
-                          <span className="text-gray-600 text-xs">
-                            Figma, Canva
-                          </span>
-                        </div>
-                      </SpotlightCard>
-                      <SpotlightCard
-                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                        spotlightColor="rgba(6, 0, 16, 0.5)"
-                      >
-                        <div className="flex flex-col w-full justify-center items-center text-center">
-                          <p className="w-full text-base">Web Developer</p>
-                          <span className="text-gray-600 text-xs">
-                            HTML, CSS, JavaScript
-                          </span>
-                        </div>
-                      </SpotlightCard>
-                      <SpotlightCard
-                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                        spotlightColor="rgba(6, 0, 16, 0.5)"
-                      >
-                        <div className="flex flex-col w-full justify-center items-center text-center">
-                          <p className="w-full text-base">Fronted Developer</p>
-                          <span className="text-gray-600 text-xs">
-                            React, Tailwind
-                          </span>
-                        </div>
-                      </SpotlightCard>{" "}
-                      <SpotlightCard
-                        className="custom-spotlight-card w-[200px] flex items-center h-[200px] text-white"
-                        spotlightColor="rgba(6, 0, 16, 0.5)"
-                      >
-                        <div className="flex flex-col w-full justify-center items-center text-center">
-                          <p className="w-full text-base">
-                            Full Stack Developer
-                          </p>
-                          <span className="text-gray-600 text-xs">
-                            React, Laravel, Node.js, MySQL
-                          </span>
-                        </div>
-                      </SpotlightCard>
-                    </div>
+                    <p
+                      style={{
+                        color: "rgba(161, 148, 184, 0.7)",
+                        fontSize: "11px",
+                      }}
+                    >
+                      © 2025{" "}
+                      <span className="font-semibold text-white">
+                        Gilang Arya
+                      </span>{" "}
+                      — Built with ❤️ using Next.js, TypeScript, and Tailwind
+                      CSS.
+                    </p>
+                  </div>
+                  <div className="flex gap-5">
+                    <p className="relative inline-block cursor-pointer h-[25px] text-white group">
+                      GiHub
+                      <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-white group-hover:w-full transition-all duration-300"></span>
+                    </p>
+
+                    <p className="relative inline-block cursor-pointer h-[25px] text-white group">
+                      Email
+                      <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-white group-hover:w-full transition-all duration-300"></span>
+                    </p>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center items-center h-screen">
-                  <div className="container mx-auto text-center mt-28">
-                    <SplitText
-                      text="Contact Me"
-                      className="text-2xl font-semibold text-center text-white"
-                      delay={100}
-                      duration={0.6}
-                      ease="power3.out"
-                      splitType="lines"
-                      from={{ opacity: 0, y: 40 }}
-                      to={{ opacity: 1, y: 0 }}
-                      threshold={0.1}
-                      rootMargin="-100px"
-                      textAlign="center"
-                    />
-                  </div>
-                  <div
-                    className="container mx-auto w-full mt-12"
-                    style={{ position: "relative" }}
-                  >
-                    <GlassIcons
-                      items={items}
-                      className="custom-class text-white"
-                    />
-                  </div>
-                </div>
-              </AnimatedContent>
-            </div>
+              </footer>
+            </FadeContent>
           </ClickSpark>
         </div>
       </div>

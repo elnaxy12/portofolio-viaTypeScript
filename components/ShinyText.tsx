@@ -6,6 +6,7 @@ interface ShinyTextProps {
   disabled?: boolean;
   speed?: number;
   className?: string;
+  onClick?: () => void;
 }
 
 const ShinyText: React.FC<ShinyTextProps> = ({
@@ -13,11 +14,13 @@ const ShinyText: React.FC<ShinyTextProps> = ({
   disabled = false,
   speed = 3,
   className = "",
+  onClick
 }) => {
   const animationDuration = `${speed}s`;
 
   return (
     <div
+    onClick={onClick}
       className={`text-transparent bg-clip-text inline-block font-bold ${
         disabled ? "" : "animate-shine"
       } ${className}`}

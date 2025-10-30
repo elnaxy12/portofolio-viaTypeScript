@@ -13,6 +13,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import FadeContent from "@/components/FadeContent";
 import CardSwap, { Card } from "@/components/CardSwap";
 import SplitText from "@/components/SplitText";
+import Image from "next/image";
 
 export default function Home(): JSX.Element {
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function Home(): JSX.Element {
       import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
         gsap.registerPlugin(ScrollSmoother);
 
-        ScrollSmoother.create({
+        const smoother = ScrollSmoother.create({
           wrapper: "#smooth-wrapper",
           content: "#smooth-content",
           smooth: 2,
@@ -28,9 +29,21 @@ export default function Home(): JSX.Element {
           smoothTouch: 0.1,
           normalizeScroll: true,
         });
+
+        (window as any).smoother = smoother;
       });
     }
   }, []);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    const smoother = (window as any).smoother;
+
+    if (el && smoother) {
+      smoother.scrollTo(el, true);
+    }
+  };
+
   return (
     <div
       id="smooth-wrapper"
@@ -38,12 +51,10 @@ export default function Home(): JSX.Element {
     >
       <div className="z-10 fixed top-0 left-0 w-screen mx-auto h-40 flex items-center justify-around font-sans text-white">
         <div
-          className="bg-[#060010]/5 flex backdrop-blur-md items-center justify-between w-[90%]"
+          className="shadow-lg shadow-purple-500/40 bg-[#060010]/5 flex backdrop-blur-xl items-center justify-between w-[70%]"
           style={{
             borderRadius: "15px",
             padding: "20px",
-            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.15)",
-            border: "1px solid rgba(39, 30, 55, 0.5)",
           }}
         >
           <p className="text-3xl font-semibold cursor-pointer select-none">
@@ -51,14 +62,16 @@ export default function Home(): JSX.Element {
           </p>
           <div className="flex items-center gap-10 select-none">
             <ShinyText
-              text="Home"
+              text="Credit"
               speed={5}
               className="custom-class cursor-pointer"
+              onClick={() => scrollToSection("credit")}
             />
             <ShinyText
-              text="About"
+              text="Project"
               speed={5}
               className="custom-class cursor-pointer"
+              onClick={() => scrollToSection("project")}
             />
           </div>
         </div>
@@ -115,7 +128,10 @@ export default function Home(): JSX.Element {
                 SCROLL DOWN
               </p>
 
-              <div className="container mx-auto h-screen relative flex items-center">
+              <div
+                id="credit"
+                className="container mx-auto h-screen relative flex items-center"
+              >
                 <ScrollFloat
                   animationDuration={1}
                   ease="back.inOut(2)"
@@ -151,8 +167,8 @@ export default function Home(): JSX.Element {
                   scrollEnd="bottom bottom-=40%"
                   stagger={0.03}
                 >
-                  <div className="min-h-screen flex">
-                    <div className="text-white flex flex-col items-center justify-center w-full mb-8">
+                  <div id="project" className="min-h-screen flex mb-10">
+                    <div className="text-white flex flex-col items-center justify-center mt-[15pc] w-full">
                       <SplitText
                         text="Biggest Project"
                         className="text-4xl font-semibold text-center h-[50px]"
@@ -182,16 +198,131 @@ export default function Home(): JSX.Element {
                         pauseOnHover={false}
                       >
                         <Card>
-                          <h3 className="text-lg font-semibold">Card 1</h3>
-                          <p>Your content here</p>
+                          <div>
+                            <h4
+                              className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
+                              style={{ borderBottom: "1px solid white" }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="lucide lucide-app-window-icon lucide-app-window"
+                              >
+                                <rect
+                                  x="2"
+                                  y="4"
+                                  width="20"
+                                  height="16"
+                                  rx="2"
+                                />
+                                <path d="M10 4v4" />
+                                <path d="M2 8h20" />
+                                <path d="M6 4v4" />
+                              </svg>
+
+                              <p>Adidas Etalase</p>
+                            </h4>
+                          </div>
+                          <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
+                            <Image
+                              src="/asset/image/adidas-etalase-page.png"
+                              alt="Adidas Etalase"
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              quality={100}
+                            />
+                          </div>
                         </Card>
                         <Card>
-                          <h3 className="text-lg font-semibold">Card 2</h3>
-                          <p>Your content here</p>
+                          <div>
+                            <h4
+                              className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
+                              style={{ borderBottom: "1px solid white" }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="lucide lucide-app-window-icon lucide-app-window"
+                              >
+                                <rect
+                                  x="2"
+                                  y="4"
+                                  width="20"
+                                  height="16"
+                                  rx="2"
+                                />
+                                <path d="M10 4v4" />
+                                <path d="M2 8h20" />
+                                <path d="M6 4v4" />
+                              </svg>
+                              <p>Dashboard App</p>
+                            </h4>
+                          </div>
+                          <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
+                            <Image
+                              src="/asset/image/dashboard-app-page.png"
+                              alt="Tampilan Website Adidas"
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              quality={100}
+                            />
+                          </div>
                         </Card>
                         <Card>
-                          <h3 className="text-lg font-semibold">Card 3</h3>
-                          <p>Your content here</p>
+                          <div className="flex flex-col">
+                            <h4
+                              className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
+                              style={{ borderBottom: "1px solid white" }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="lucide lucide-app-window-icon lucide-app-window"
+                              >
+                                <rect
+                                  x="2"
+                                  y="4"
+                                  width="20"
+                                  height="16"
+                                  rx="2"
+                                />
+                                <path d="M10 4v4" />
+                                <path d="M2 8h20" />
+                                <path d="M6 4v4" />
+                              </svg>
+                              <p>Portofolio</p>
+                            </h4>
+                          </div>
+                          <div className="relative overflow-hidden flex-1 h-[340px]">
+                            <Image
+                              src="/asset/image/portofolio.png"
+                              alt="Tampilan Website Adidas"
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              quality={100}
+                            />
+                          </div>
                         </Card>
                       </CardSwap>
                     </div>

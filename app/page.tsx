@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
         const smoother = ScrollSmoother.create({
           wrapper: "#smooth-wrapper",
           content: "#smooth-content",
-          smooth: 2,
+          smooth: 7,
           effects: true,
           smoothTouch: 0.1,
           normalizeScroll: true,
@@ -145,9 +145,6 @@ export default function Home(): JSX.Element {
                   stagger={0.1}
                 >
                   <div className="container flex w-full flex-col items-center">
-                    <div className="container mx-auto">
-                      <AppLogoLoop />
-                    </div>
                     <div className="container mx-auto flex  justify-center text-justify">
                       <ScrambledText
                         className="scrambled-text-demo text-xs cursor-default"
@@ -159,6 +156,9 @@ export default function Home(): JSX.Element {
                         "Powered by React Bits, TypeScript, Next JS, and
                         Tailwind CSS."
                       </ScrambledText>
+                    </div>
+                    <div className="container mx-auto">
+                      <AppLogoLoop />
                     </div>
                   </div>
                 </ScrollFloat>
@@ -172,8 +172,8 @@ export default function Home(): JSX.Element {
                   scrollEnd="bottom bottom-=40%"
                   stagger={0.1}
                 >
-                  <div id="project" className="min-h-screen flex mb-10">
-                    <div className="text-white flex flex-col items-center justify-center mt-[15pc] w-full">
+                  <div id="project" className="relative min-h-screen flex mb-10">
+                    <div className="absolute text-white flex flex-col bottom-20 right-10 w-full">
                       <SplitText
                         text="Biggest Project"
                         className="text-4xl font-semibold text-center h-[50px]"
@@ -195,7 +195,7 @@ export default function Home(): JSX.Element {
                       </p>
                     </div>
 
-                    <div className="w-full flex justify-center items-center">
+                    <div className="relative w-full flex justify-center items-center">
                       <CardSwap
                         cardDistance={60}
                         verticalDistance={70}
@@ -319,7 +319,7 @@ export default function Home(): JSX.Element {
                               <p>Portofolio</p>
                             </h4>
                           </div>
-                          <div className="relative overflow-hidden flex-1 h-[340px]">
+                          <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
                             <Image
                               src="/assets/images/portofolio.png"
                               alt="Tampilan Website Adidas"

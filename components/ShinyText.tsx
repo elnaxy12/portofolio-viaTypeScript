@@ -5,6 +5,7 @@ interface ShinyTextProps {
   text: string;
   disabled?: boolean;
   speed?: number;
+  delay?: number;
   className?: string;
   onClick?: () => void;
 }
@@ -14,9 +15,11 @@ const ShinyText: React.FC<ShinyTextProps> = ({
   disabled = false,
   speed = 3,
   className = "",
+  delay = 0,
   onClick
 }) => {
   const animationDuration = `${speed}s`;
+  const animationDelay = `${delay}s`;
 
   return (
     <div
@@ -30,6 +33,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({
         backgroundSize: "200% auto",
         WebkitBackgroundClip: "text",
         animationDuration,
+        animationDelay,
       }}
     >
       {text}

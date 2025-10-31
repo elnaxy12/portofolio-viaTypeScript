@@ -57,19 +57,24 @@ export default function Home(): JSX.Element {
             padding: "20px",
           }}
         >
-          <p className="text-3xl font-semibold cursor-pointer select-none">
+          <a
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-3xl font-semibold cursor-pointer select-none"
+          >
             Gilang Arya
-          </p>
+          </a>
           <div className="flex items-center gap-10 select-none">
             <ShinyText
               text="Credit"
-              speed={5}
+              speed={10}
+              delay={0}
               className="custom-class cursor-pointer"
               onClick={() => scrollToSection("credit")}
             />
             <ShinyText
               text="Project"
-              speed={5}
+              speed={10}
+              delay={3}
               className="custom-class cursor-pointer"
               onClick={() => scrollToSection("project")}
             />
@@ -137,7 +142,7 @@ export default function Home(): JSX.Element {
                   ease="back.inOut(2)"
                   scrollStart="center bottom+=50"
                   scrollEnd="bottom bottom-=40%"
-                  stagger={0.03}
+                  stagger={0.1}
                 >
                   <div className="container flex w-full flex-col items-center">
                     <div className="container mx-auto">
@@ -165,7 +170,7 @@ export default function Home(): JSX.Element {
                   ease="back.inOut(2)"
                   scrollStart="center bottom+=50"
                   scrollEnd="bottom bottom-=40%"
-                  stagger={0.03}
+                  stagger={0.1}
                 >
                   <div id="project" className="min-h-screen flex mb-10">
                     <div className="text-white flex flex-col items-center justify-center mt-[15pc] w-full">
@@ -370,7 +375,12 @@ export default function Home(): JSX.Element {
               >
                 <div className="flex justify-between text-white">
                   <div>
-                    <p className="text-xl">Gilang Arya Leksana</p>
+                    <p
+                      className="text-xs tracking-tight inline-block"
+                      style={{ fontFamily: "Doto" }}
+                    >
+                      Gilang Arya Leksana
+                    </p>
                     <div>
                       <ScrambledText
                         className="scrambled-text-demo text-xs cursor-default"

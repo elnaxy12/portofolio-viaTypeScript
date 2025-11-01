@@ -64,7 +64,7 @@ export default function Home(): JSX.Element {
           >
             Gilang Arya
           </a>
-          <div className="flex items-center lg:gap-10 md:gap-8 select-none">
+          <div className="flex items-center gap-8 select-none">
             <ShinyText
               text="Credit"
               speed={10}
@@ -182,26 +182,28 @@ export default function Home(): JSX.Element {
             {/* ============ BATAS ANIMASI SCROLL FADE =============== */}
 
             {/* CONTENT HISTORY PROJECT */}
-            <div className="w-full container flex flex-col justify-center">
-              <SplitText
-                text="Biggest Project"
-                className="text-4xl text-white font-semibold text-center h-[50px]"
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="lines"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-              />
-              <p
-                className="mt-2 text-[11px] text-center"
-                style={{ color: "rgba(161, 148, 184, 0.7)" }}
-              >
-                Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
-              </p>
+            <div className="w-full h-screen relative container flex flex-col justify-center mb-10">
+              <div className="absolute bottom-0 right-0">
+                <SplitText
+                  text="Biggest Project"
+                  className="text-4xl text-white font-semibold text-center h-[50px]"
+                  delay={100}
+                  duration={0.6}
+                  ease="power3.out"
+                  splitType="lines"
+                  from={{ opacity: 0, y: 40 }}
+                  to={{ opacity: 1, y: 0 }}
+                  threshold={0.1}
+                  rootMargin="-100px"
+                  textAlign="center"
+                />
+                <p
+                  className="mt-2 text-[11px] text-center"
+                  style={{ color: "rgba(161, 148, 184, 0.7)" }}
+                >
+                  Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
+                </p>
+              </div>
             </div>
 
             <div

@@ -64,7 +64,7 @@ export default function Home(): JSX.Element {
           >
             Gilang Arya
           </a>
-          <div className="flex items-center lg:gap-10 md:gap-5 select-none">
+          <div className="flex items-center lg:gap-10 md:gap-8 select-none">
             <ShinyText
               text="Credit"
               speed={10}
@@ -182,10 +182,7 @@ export default function Home(): JSX.Element {
             {/* ============ BATAS ANIMASI SCROLL FADE =============== */}
 
             {/* CONTENT HISTORY PROJECT */}
-            <div
-              id="project"
-              className="w-full container flex flex-col justify-center"
-            >
+            <div className="w-full container flex flex-col justify-center">
               <SplitText
                 text="Biggest Project"
                 className="text-4xl text-white font-semibold text-center h-[50px]"
@@ -207,7 +204,10 @@ export default function Home(): JSX.Element {
               </p>
             </div>
 
-            <div className="container h-screen flex flex-col mb-10">
+            <div
+              id="project"
+              className="container h-screen flex flex-col mb-10"
+            >
               {/* ANIMASI SCROLL FADE */}
               <ScrollFloat
                 animationDuration={1}

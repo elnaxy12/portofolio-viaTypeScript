@@ -64,7 +64,7 @@ export default function Home(): JSX.Element {
           >
             Gilang Arya
           </a>
-          <div className="flex items-center gap-10 select-none">
+          <div className="flex items-center gap-10 md:gap-5 select-none">
             <ShinyText
               text="Credit"
               speed={10}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { gsap } from "gsap";
 import BlurText from "@/components/BlurText";
 import ShinyText from "@/components/ShinyText";
@@ -14,18 +14,6 @@ import FadeContent from "@/components/FadeContent";
 import CardSwap, { Card } from "@/components/CardSwap";
 import SplitText from "@/components/SplitText";
 import Image from "next/image";
-
-type ResponsiveImageProps = React.ComponentProps<typeof Image>;
-
-export function ResponsiveImage(props: ResponsiveImageProps) {
-  const [quality, setQuality] = useState(90);
-
-  useEffect(() => {
-    if (window.innerWidth < 768) setQuality(60);
-  }, []);
-
-  return <Image {...props} quality={quality} />;
-}
 
 export default function Home(): JSX.Element {
   useEffect(() => {

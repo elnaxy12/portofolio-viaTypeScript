@@ -178,7 +178,7 @@ export default function Home(): JSX.Element {
                       id="project"
                       className="relative min-h-screen flex mb-10 md:flex-col"
                     >
-                      <div className="absolute md:relative text-white flex flex-col bottom-20 right-10 w-full">
+                      <div className="absolute lg:absolute md:relative text-white flex flex-col bottom-20 right-10 w-full">
                         <SplitText
                           text="Biggest Project"
                           className="text-4xl font-semibold text-center h-[50px]"

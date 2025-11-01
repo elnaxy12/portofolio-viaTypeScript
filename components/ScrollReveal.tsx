@@ -111,7 +111,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   return (
     <div ref={containerRef} className={`container mx-auto relative my-5 ${containerClassName}`}>
-      <p className={`text-[clamp(1rem,4vw,3rem)] leading-[1.5] font-semibold ${textClassName}`}>{splitText}</p>
+      <p className={`text-[clamp(1rem,4vw,3rem)] leading-[1.5] text-justify font-semibold ${textClassName}`}>{splitText}</p>
     </div>
   );
 };

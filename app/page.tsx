@@ -182,7 +182,29 @@ export default function Home(): JSX.Element {
             {/* ============ BATAS ANIMASI SCROLL FADE =============== */}
 
             {/* CONTENT HISTORY PROJECT */}
-            <div className="container flex flex-col">
+            <div className="w-full container flex flex-col justify-center">
+              <SplitText
+                text="Biggest Project"
+                className="text-4xl text-white font-semibold text-center h-[50px]"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="lines"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+              />
+              <p
+                className="mt-2 text-[11px] text-center"
+                style={{ color: "rgba(161, 148, 184, 0.7)" }}
+              >
+                Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
+              </p>
+            </div>
+
+            <div id="project" className="container flex flex-col mb-10">
               {/* ANIMASI SCROLL FADE */}
               <ScrollFloat
                 animationDuration={1}
@@ -191,152 +213,124 @@ export default function Home(): JSX.Element {
                 scrollEnd="bottom bottom-=40%"
                 stagger={0.1}
               >
-                <div
-                  id="project"
-                  className="relative h-screen flex mb-10"
-                >
-                  {/* TITLE CARD */}
-                  <div className="absolute text-white flex flex-col bottom-[-10] lg:right-10 w-full">
-                    <SplitText
-                      text="Biggest Project"
-                      className="text-4xl font-semibold text-center h-[50px]"
-                      delay={100}
-                      duration={0.6}
-                      ease="power3.out"
-                      splitType="lines"
-                      from={{ opacity: 0, y: 40 }}
-                      to={{ opacity: 1, y: 0 }}
-                      threshold={0.1}
-                      rootMargin="-100px"
-                      textAlign="center"
-                    />
-                    <p
-                      className="mt-2 text-[11px] text-center"
-                      style={{ color: "rgba(161, 148, 184, 0.7)" }}
-                    >
-                      Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
-                    </p>
-                  </div>
+                {/* CARD SWAP */}
+                <div className="w-full md:relative md:h-[600px] flex justify-center items-center">
+                  <CardSwap
+                    cardDistance={60}
+                    verticalDistance={70}
+                    delay={5000}
+                    pauseOnHover={false}
+                  >
+                    <Card>
+                      <div>
+                        <h4
+                          className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
+                          style={{ borderBottom: "1px solid white" }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="lucide lucide-app-window-icon lucide-app-window"
+                          >
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="M10 4v4" />
+                            <path d="M2 8h20" />
+                            <path d="M6 4v4" />
+                          </svg>
 
-                  {/* CARD SWAP */}
-                  <div className="w-full md:relative md:h-[600px] flex justify-center items-center">
-                    <CardSwap
-                      cardDistance={60}
-                      verticalDistance={70}
-                      delay={5000}
-                      pauseOnHover={false}
-                    >
-                      <Card>
-                        <div>
-                          <h4
-                            className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
-                            style={{ borderBottom: "1px solid white" }}
+                          <p>Adidas Etalase</p>
+                        </h4>
+                      </div>
+                      <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
+                        <Image
+                          src="/assets/images/adidas-etalase-page.png"
+                          alt="Adidas Etalase"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          quality={100}
+                        />
+                      </div>
+                    </Card>
+                    <Card>
+                      <div>
+                        <h4
+                          className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
+                          style={{ borderBottom: "1px solid white" }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="lucide lucide-app-window-icon lucide-app-window"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="lucide lucide-app-window-icon lucide-app-window"
-                            >
-                              <rect x="2" y="4" width="20" height="16" rx="2" />
-                              <path d="M10 4v4" />
-                              <path d="M2 8h20" />
-                              <path d="M6 4v4" />
-                            </svg>
-
-                            <p>Adidas Etalase</p>
-                          </h4>
-                        </div>
-                        <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
-                          <Image
-                            src="/assets/images/adidas-etalase-page.png"
-                            alt="Adidas Etalase"
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={100}
-                          />
-                        </div>
-                      </Card>
-                      <Card>
-                        <div>
-                          <h4
-                            className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
-                            style={{ borderBottom: "1px solid white" }}
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="M10 4v4" />
+                            <path d="M2 8h20" />
+                            <path d="M6 4v4" />
+                          </svg>
+                          <p>Dashboard App</p>
+                        </h4>
+                      </div>
+                      <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
+                        <Image
+                          src="/assets/images/dashboard-app-page.png"
+                          alt="Tampilan Website Adidas"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          quality={100}
+                        />
+                      </div>
+                    </Card>
+                    <Card>
+                      <div className="flex flex-col">
+                        <h4
+                          className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
+                          style={{ borderBottom: "1px solid white" }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="lucide lucide-app-window-icon lucide-app-window"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="lucide lucide-app-window-icon lucide-app-window"
-                            >
-                              <rect x="2" y="4" width="20" height="16" rx="2" />
-                              <path d="M10 4v4" />
-                              <path d="M2 8h20" />
-                              <path d="M6 4v4" />
-                            </svg>
-                            <p>Dashboard App</p>
-                          </h4>
-                        </div>
-                        <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
-                          <Image
-                            src="/assets/images/dashboard-app-page.png"
-                            alt="Tampilan Website Adidas"
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={100}
-                          />
-                        </div>
-                      </Card>
-                      <Card>
-                        <div className="flex flex-col">
-                          <h4
-                            className="items-center bg-gradient-to-t from-black to-[#130030] text-lg rounded-tl-xl rounded-tr-xl text-white font-semibold flex gap-2 p-3"
-                            style={{ borderBottom: "1px solid white" }}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="lucide lucide-app-window-icon lucide-app-window"
-                            >
-                              <rect x="2" y="4" width="20" height="16" rx="2" />
-                              <path d="M10 4v4" />
-                              <path d="M2 8h20" />
-                              <path d="M6 4v4" />
-                            </svg>
-                            <p>Portofolio</p>
-                          </h4>
-                        </div>
-                        <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
-                          <Image
-                            src="/assets/images/portofolio.png"
-                            alt="Tampilan Website Adidas"
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={100}
-                          />
-                        </div>
-                      </Card>
-                    </CardSwap>
-                  </div>
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="M10 4v4" />
+                            <path d="M2 8h20" />
+                            <path d="M6 4v4" />
+                          </svg>
+                          <p>Portofolio</p>
+                        </h4>
+                      </div>
+                      <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
+                        <Image
+                          src="/assets/images/portofolio.png"
+                          alt="Tampilan Website Adidas"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          quality={100}
+                        />
+                      </div>
+                    </Card>
+                  </CardSwap>
                 </div>
               </ScrollFloat>
               {/* ============ BATAS ANIMASI SCROLL FADE =============== */}

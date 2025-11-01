@@ -204,7 +204,7 @@ export default function Home(): JSX.Element {
               </p>
             </div>
 
-            <div id="project" className="container flex flex-col mb-10">
+            <div id="project" className="container h-screen flex flex-col mb-10">
               {/* ANIMASI SCROLL FADE */}
               <ScrollFloat
                 animationDuration={1}

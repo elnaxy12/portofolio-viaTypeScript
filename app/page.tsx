@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { gsap } from "gsap";
 import BlurText from "@/components/BlurText";
 import ShinyText from "@/components/ShinyText";
@@ -17,24 +17,22 @@ import Image from "next/image";
 
 export default function Home(): JSX.Element {
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window !== "undefined") {
+      import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
+        gsap.registerPlugin(ScrollSmoother);
 
-    const isMobile = window.innerWidth < 768;
+        const smoother = ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          content: "#smooth-content",
+          smooth: 7,
+          effects: true,
+          smoothTouch: 0.1,
+          normalizeScroll: true,
+        });
 
-    import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
-      gsap.registerPlugin(ScrollSmoother);
-
-      const smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: isMobile ? 1.5 : 7,
-        smoothTouch: 0.05,
-        effects: !isMobile,
-        normalizeScroll: true,
+        (window as any).smoother = smoother;
       });
-
-      (window as any).smoother = smoother;
-    });
+    }
   }, []);
 
   const scrollToSection = (id: string) => {

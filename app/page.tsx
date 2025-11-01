@@ -196,7 +196,7 @@ export default function Home(): JSX.Element {
                   className="relative h-screen flex mb-10"
                 >
                   {/* TITLE CARD */}
-                  <div className="absolute text-white flex flex-col bottom-0 lg:right-10 w-full">
+                  <div className="absolute text-white flex flex-col bottom-0 md:mt-5 lg:right-10 w-full">
                     <SplitText
                       text="Biggest Project"
                       className="text-4xl font-semibold text-center h-[50px]"

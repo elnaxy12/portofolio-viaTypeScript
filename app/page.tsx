@@ -27,7 +27,7 @@ export default function Home(): JSX.Element {
       const smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: isMobile ? 1.5 : 7,
+        smooth: isMobile ? 1.5 : 2,
         smoothTouch: 0.05,
         effects: !isMobile,
         normalizeScroll: true,
@@ -85,9 +85,9 @@ export default function Home(): JSX.Element {
           </div>
         </div>
         <div id="smooth-content">
-          {/* <div className="absolute top-0 left-0 w-full h-screen z-0">
+          <div className="absolute top-0 left-0 w-full h-screen z-0">
             <DarkVeil />
-          </div> */}
+          </div>
           <div className="w-full mx-auto">
             <ClickSpark
               sparkColor="#fff"
@@ -176,9 +176,9 @@ export default function Home(): JSX.Element {
                   >
                     <div
                       id="project"
-                      className="relative min-h-screen flex mb-10 md:flex-col"
+                      className="relative h-screen flex mb-10 flex-col"
                     >
-                      <div className="absolute lg:absolute md:relative text-white flex flex-col bottom-20 right-10 w-full">
+                      <div className="lg:absolute md:relative text-white flex flex-col bottom-20 right-10 w-full">
                         <SplitText
                           text="Biggest Project"
                           className="text-4xl font-semibold text-center h-[50px]"

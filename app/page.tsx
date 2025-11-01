@@ -25,7 +25,7 @@ export default function Home(): JSX.Element {
       const smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 7,
+        smooth: 2,
         effects: true,
         smoothTouch: 0.1,
         normalizeScroll: true,

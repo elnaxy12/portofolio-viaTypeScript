@@ -16,69 +16,28 @@ import SplitText from "@/components/SplitText";
 import Image from "next/image";
 
 export default function Home(): JSX.Element {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isSmootherReady, setIsSmootherReady] = useState(false);
-
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const isMobile = window.innerWidth < 768;
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
+      gsap.registerPlugin(ScrollSmoother);
 
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
+      const smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: isMobile ? 1.5 : 7,
+        smoothTouch: 0.05,
+        effects: !isMobile,
+        normalizeScroll: true,
+      });
+
+      (window as any).smoother = smoother;
+    });
   }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!gsap) return; 
-
-    const initScrollSmoother = async () => {
-      try {
-        const { ScrollSmoother } = await import("gsap/ScrollSmoother");
-
-        gsap.registerPlugin(ScrollSmoother);
-
-        const smoother = ScrollSmoother.create({
-          wrapper: "#smooth-wrapper",
-          content: "#smooth-content",
-          smooth: isMobile ? 1.5 : 2,
-          smoothTouch: 0.1,
-          effects: !isMobile,
-          normalizeScroll: true,
-        });
-
-        (window as any).smoother = smoother;
-        setIsSmootherReady(true);
-
-        console.log("ScrollSmoother initialized successfully");
-      } catch (error) {
-        console.error("Failed to initialize ScrollSmoother:", error);
-      }
-    };
-
-    // Hanya initialize jika belum ready
-    if (!isSmootherReady) {
-      initScrollSmoother();
-    }
-  }, [isMobile, isSmootherReady]);
-
   const scrollToSection = (id: string) => {
-    if (typeof window === "undefined") return;
-    if (!isSmootherReady) {
-      // Fallback ke native smooth scroll
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-      return;
-    }
-
     const el = document.getElementById(id);
     const smoother = (window as any).smoother;
 

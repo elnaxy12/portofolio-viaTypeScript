@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import BlurText from "@/components/BlurText";
 import ShinyText from "@/components/ShinyText";
@@ -16,28 +16,49 @@ import SplitText from "@/components/SplitText";
 import Image from "next/image";
 
 export default function Home(): JSX.Element {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isSmootherReady, setIsSmootherReady] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const isMobile = window.innerWidth < 768;
+    const initScrollSmoother = async () => {
+      try {
+        const { ScrollSmoother } = await import("gsap/ScrollSmoother");
 
-    import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
-      gsap.registerPlugin(ScrollSmoother);
+        if (!gsap) return;
 
-      const smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: isMobile ? 1.5 : 2,
-        smoothTouch: 0.05,
-        effects: !isMobile,
-        normalizeScroll: true,
-      });
+        gsap.registerPlugin(ScrollSmoother);
 
-      (window as any).smoother = smoother;
-    });
-  }, []);
+        const smoother = ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          content: "#smooth-content",
+          smooth: isMobile ? 1.5 : 2,
+          smoothTouch: 0.05,
+          effects: !isMobile,
+          normalizeScroll: true,
+        });
 
+        (window as any).smoother = smoother;
+        setIsSmootherReady(true);
+      } catch (error) {
+        console.error("Failed to initialize ScrollSmoother:", error);
+      }
+    };
+
+    initScrollSmoother();
+  }, [isMobile]); 
   const scrollToSection = (id: string) => {
+    if (!isSmootherReady) return;
+
     const el = document.getElementById(id);
     const smoother = (window as any).smoother;
 
@@ -147,7 +168,7 @@ export default function Home(): JSX.Element {
                     stagger={0.1}
                   >
                     <div className="container flex w-full flex-col items-center">
-                      <div className="container mx-auto flex  justify-center text-justify">
+                      <div className="container flex lg:justify-center md:justify-normal">
                         <ScrambledText
                           className="scrambled-text-demo text-xs cursor-default"
                           radius={100}

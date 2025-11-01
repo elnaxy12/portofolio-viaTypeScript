@@ -341,7 +341,7 @@ export default function Home(): JSX.Element {
                 </div>
               </div>
 
-              <div className="w-full mx-auto text-white md:pr-2 md:pl-2">
+              <div className="w-full mx-auto text-white pr-2 pl-2">
                 <ScrollReveal
                   baseOpacity={0.1}
                   enableBlur={true}

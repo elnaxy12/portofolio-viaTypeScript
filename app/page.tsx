@@ -1,25 +1,58 @@
 "use client";
 
-import { useEffect } from "react";
-import { gsap } from "gsap";
-import BlurText from "@/components/BlurText";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+
+// ✅ Component ringan - normal import
 import ShinyText from "@/components/ShinyText";
 import DarkVeil from "@/components/DarkVeil";
-import ScrambledText from "@/components/ScrambledText";
-import AppLogoLoop from "@/components/AppLogoLoop";
-import ClickSpark from "@/components/ClickSpark";
 import ScrollFloat from "@/components/ScrollFloat";
 import ScrollReveal from "@/components/ScrollReveal";
 import FadeContent from "@/components/FadeContent";
-import CardSwap, { Card } from "@/components/CardSwap";
 import SplitText from "@/components/SplitText";
-import Image from "next/image";
+import CardSwap, { Card } from "@/components/CardSwap";
+
+// ❌ Component berat - dynamic import
+const BlurText = dynamic(() => import("@/components/BlurText"), {
+  ssr: false,
+  loading: () => <div className="h-20 bg-gray-100 rounded animate-pulse"></div>,
+});
+
+const ScrambledText = dynamic(() => import("@/components/ScrambledText"), {
+  ssr: false,
+  loading: () => <div className="h-6 bg-gray-200 rounded animate-pulse"></div>,
+});
+
+const AppLogoLoop = dynamic(() => import("@/components/AppLogoLoop"), {
+  ssr: false,
+  loading: () => <div className="h-32 bg-gray-200 rounded animate-pulse"></div>,
+});
+
+const ClickSpark = dynamic(() => import("@/components/ClickSpark"), {
+  ssr: false,
+});
 
 export default function Home(): JSX.Element {
+  const [isMobile, setIsMobile] = useState(false);
+  const [showHeavyComponents, setShowHeavyComponents] = useState(false);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
+    // Check if mobile
+    setIsMobile(window.innerWidth < 768);
+
+    // Load heavy components after delay for better perceived performance
+    const heavyTimer = setTimeout(() => {
+      setShowHeavyComponents(true);
+    }, 1500);
+
+    // GSAP ScrollSmoother dengan lazy load
+    const initScrollSmoother = async () => {
+      const { gsap } = await import("gsap");
+      const { ScrollSmoother } = await import("gsap/ScrollSmoother");
+
       gsap.registerPlugin(ScrollSmoother);
 
       const smoother = ScrollSmoother.create({
@@ -32,7 +65,13 @@ export default function Home(): JSX.Element {
       });
 
       (window as any).smoother = smoother;
-    });
+    };
+
+    initScrollSmoother();
+
+    return () => {
+      clearTimeout(heavyTimer);
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -262,7 +301,8 @@ export default function Home(): JSX.Element {
                           alt="Adidas Etalase"
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          quality={100}
+                          quality={75}
+                          priority={false}
                         />
                       </div>
                     </Card>
@@ -298,7 +338,8 @@ export default function Home(): JSX.Element {
                           alt="Tampilan Website Adidas"
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          quality={100}
+                          quality={75}
+                          priority={false}
                         />
                       </div>
                     </Card>
@@ -334,7 +375,8 @@ export default function Home(): JSX.Element {
                           alt="Tampilan Website Adidas"
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          quality={100}
+                          quality={75}
+                          priority={false}
                         />
                       </div>
                     </Card>

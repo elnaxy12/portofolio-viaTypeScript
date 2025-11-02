@@ -28,6 +28,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({
         disabled ? "" : "animate-shine"
       } ${className}`}
       style={{
+        fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
         backgroundImage:
           "linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.1) 100%)",
         backgroundSize: "200% auto",

@@ -61,6 +61,9 @@ export default function Home(): JSX.Element {
           <a
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-3xl font-semibold cursor-pointer select-none"
+            style={{
+              fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+            }}
           >
             Gilang Arya
           </a>

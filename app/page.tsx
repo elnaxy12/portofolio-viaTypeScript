@@ -51,10 +51,7 @@ export default function Home(): JSX.Element {
       className="relative min-h-screen w-full select-none bg-[#060010] overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth"
     >
       <div className="flex lg:hidden items-center justify-center min-h-screen">
-        <div
-          className="block text-center px-4"
-          style={{ height: "400px", position: "relative" }}
-        >
+        <div className="flex items-center flex-col justify-center text-center w-full h-full px-4">
           <GlareHover
             glareColor="#ffffff"
             glareOpacity={0.3}
@@ -63,10 +60,8 @@ export default function Home(): JSX.Element {
             transitionDuration={800}
             playOnce={false}
           >
-            <h2 className="text-xl font-bold text-blue-800 mb-2">
-              💻 Desktop View
-            </h2>
-            <p className="text-blue-700">
+            <h2 className="text-xl font-bold text-white mb-2">Desktop View</h2>
+            <p className="text-white p-5">
               For optimal experience, this portfolio is best viewed on desktop
               with animations and interactive elements.
             </p>

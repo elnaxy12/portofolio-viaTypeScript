@@ -50,7 +50,7 @@ export default function Home(): JSX.Element {
       id="smooth-wrapper"
       className="relative min-h-screen w-full select-none bg-[#060010] overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth"
     >
-      <div className="flex lg:hidden items-center justify-center min-h-screen">
+      <div className="flex lg:hidden items-center justify-center h-screen">
         <div className="flex items-center flex-col justify-center text-center w-full h-full px-4">
           <GlareHover
             glareColor="#ffffff"

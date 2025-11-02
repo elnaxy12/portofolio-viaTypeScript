@@ -88,7 +88,7 @@ export default function Home(): JSX.Element {
       {/* SCROLL-SMOOTH */}
       <div id="smooth-content">
         {/* BG-HOME */}
-        <div className="absolute top-0 left-0 w-full h-screen z-0">
+        <div className="absolute top-0 left-0 w-full h-screen z-0 lg:block md:hidden">
           <DarkVeil />
         </div>
 

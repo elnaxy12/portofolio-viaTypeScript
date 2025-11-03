@@ -81,11 +81,11 @@ export default function Home(): JSX.Element {
           >
             <a
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-3xl font-semibold cursor-pointer select-none"
+              className="text-xl font-semibold cursor-pointer select-none"
             >
               Gilang Arya
             </a>
-            <div className="flex items-center gap-8 select-none">
+            <div className="flex items-center gap-8 select-none mr-4">
               <ShinyText
                 text="Credit"
                 speed={10}
@@ -202,35 +202,7 @@ export default function Home(): JSX.Element {
 
               {/* ============ BATAS ANIMASI SCROLL FADE =============== */}
 
-              {/* CONTENT HISTORY PROJECT */}
-              <div className="w-full h-screen relative container flex flex-col justify-center mb-10">
-                <div className="absolute bottom-0 right-0">
-                  <SplitText
-                    text="Biggest Project"
-                    className="text-4xl text-white font-semibold text-center h-[50px]"
-                    delay={100}
-                    duration={0.6}
-                    ease="power3.out"
-                    splitType="lines"
-                    from={{ opacity: 0, y: 40 }}
-                    to={{ opacity: 1, y: 0 }}
-                    threshold={0.1}
-                    rootMargin="-100px"
-                    textAlign="center"
-                  />
-                  <p
-                    className="mt-2 text-[11px] text-center"
-                    style={{ color: "rgba(161, 148, 184, 0.7)" }}
-                  >
-                    Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
-                  </p>
-                </div>
-              </div>
-
-              <div
-                id="project"
-                className="container h-screen flex flex-col mb-10"
-              >
+              <div id="project" className="container h-screen mb-10">
                 {/* ANIMASI SCROLL FADE */}
                 <ScrollFloat
                   animationDuration={1}
@@ -239,8 +211,30 @@ export default function Home(): JSX.Element {
                   scrollEnd="bottom bottom-=40%"
                   stagger={0.1}
                 >
+                  {/* CONTENT HISTORY PROJECT */}
+                  <div className="w-full flex flex-col absolute bottom-[10rem] right-[10rem]">
+                    <SplitText
+                      text="Biggest Project"
+                      className="text-4xl text-white font-semibold text-center h-[50px]"
+                      delay={100}
+                      duration={0.6}
+                      ease="power3.out"
+                      splitType="lines"
+                      from={{ opacity: 0, y: 40 }}
+                      to={{ opacity: 1, y: 0 }}
+                      threshold={0.1}
+                      rootMargin="-100px"
+                      textAlign="center"
+                    />
+                    <p
+                      className="mt-2 text-[11px] text-center"
+                      style={{ color: "rgba(161, 148, 184, 0.7)" }}
+                    >
+                      Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
+                    </p>
+                  </div>
                   {/* CARD SWAP */}
-                  <div className="w-full md:relative md:h-[600px] flex justify-center items-center">
+                  <div className="h-[550px] relative w-full">
                     <CardSwap
                       cardDistance={60}
                       verticalDistance={70}
@@ -280,7 +274,8 @@ export default function Home(): JSX.Element {
                             alt="Adidas Etalase"
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={100}
+                            quality={75}
+                            priority
                           />
                         </div>
                       </Card>
@@ -313,10 +308,11 @@ export default function Home(): JSX.Element {
                         <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
                           <Image
                             src="/assets/images/dashboard-app-page.png"
-                            alt="Tampilan Website Adidas"
+                            alt="Dashboard App"
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={100}
+                            quality={75}
+                            priority
                           />
                         </div>
                       </Card>
@@ -349,10 +345,11 @@ export default function Home(): JSX.Element {
                         <div className="relative overflow-hidden flex-1 h-[345px] rounded-bl-xl rounded-br-xl">
                           <Image
                             src="/assets/images/portofolio.png"
-                            alt="Tampilan Website Adidas"
+                            alt="Portofolio"
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={100}
+                            quality={75}
+                            priority
                           />
                         </div>
                       </Card>
@@ -407,7 +404,7 @@ export default function Home(): JSX.Element {
                   <div className="container mx-auto flex justify-between text-white pr-2 pl-2">
                     <div>
                       <p
-                        className="text-xs sm:text-xs md:text-xs lg:text-sm tracking-tight inline-block"
+                        className="text-xs tracking-tight inline-block"
                         style={{ fontFamily: "Doto" }}
                       >
                         Gilang Arya Leksana

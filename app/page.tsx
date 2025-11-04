@@ -2,19 +2,19 @@
 
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import BlurText from "@/components/BlurText";
-import ShinyText from "@/components/ShinyText";
-import DarkVeil from "@/components/DarkVeil";
-import ScrambledText from "@/components/ScrambledText";
-import AppLogoLoop from "@/components/AppLogoLoop";
-import ClickSpark from "@/components/ClickSpark";
-import ScrollFloat from "@/components/ScrollFloat";
-import ScrollReveal from "@/components/ScrollReveal";
-import FadeContent from "@/components/FadeContent";
-import CardSwap, { Card } from "@/components/CardSwap";
-import SplitText from "@/components/SplitText";
+import BlurText from "@/app/components/BlurText";
+import ShinyText from "@/app/components/ShinyText";
+import DarkVeil from "@/app/components/DarkVeil";
+import ScrambledText from "@/app/components/ScrambledText";
+import AppLogoLoop from "@/app/components/AppLogoLoop";
+import ClickSpark from "@/app/components/ClickSpark";
+import ScrollFloat from "@/app/components/ScrollFloat";
+import ScrollReveal from "@/app/components/ScrollReveal";
+import FadeContent from "@/app/components/FadeContent";
+import CardSwap, { Card } from "@/app/components/CardSwap";
+import SplitText from "@/app/components/SplitText";
 import Image from "next/image";
-import GlareHover from "@/components/GlareHover";
+import GlareHover from "@/app/components/GlareHover";
 
 export default function Home(): JSX.Element {
   useEffect(() => {

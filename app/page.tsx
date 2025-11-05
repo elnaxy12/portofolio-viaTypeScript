@@ -70,6 +70,42 @@ export default function Home(): JSX.Element {
       </div>
 
       <div className="hidden lg:block">
+        {/* TOP NAVBAR */}
+        <div className="z-10 fixed top-0 left-0 w-screen mx-auto h-40 flex items-center justify-around font-sans text-white">
+          <div
+            className="shadow-lg shadow-purple-500/40 bg-[#060010]/5 flex backdrop-blur-xl items-center justify-between w-full sm:w-4/5 md:w-[70%] lg:w-3/5 mr-2 ml-2"
+            style={{
+              borderRadius: "15px",
+              padding: "20px",
+            }}
+          >
+            <a
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-xl font-semibold cursor-pointer select-none"
+            >
+              Gilang Arya
+            </a>
+            <div className="flex items-center gap-8 select-none mr-4">
+              <ShinyText
+                text="Credit"
+                speed={10}
+                delay={0}
+                className="custom-class cursor-pointer"
+                onClick={() => scrollToSection("credit")}
+              />
+              <ShinyText
+                text="Project"
+                speed={10}
+                delay={3}
+                className="custom-class cursor-pointer"
+                onClick={() => scrollToSection("project")}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* ========== BATAS NAVBAR ========== */}
+
         {/* SCROLL-SMOOTH */}
         <div id="smooth-content">
           {/* BG-HOME */}
@@ -86,43 +122,6 @@ export default function Home(): JSX.Element {
               sparkCount={8}
               duration={400}
             >
-              {/* TOP NAVBAR */}
-              <div className="z-10 fixed top-0 left-0 w-screen mx-auto h-40 flex items-center justify-around font-sans text-white">
-                <div
-                  className="shadow-lg shadow-purple-500/40 bg-[#060010]/5 flex backdrop-blur-xl items-center justify-between w-full sm:w-4/5 md:w-[70%] lg:w-3/5 mr-2 ml-2"
-                  style={{
-                    borderRadius: "15px",
-                    padding: "20px",
-                  }}
-                >
-                  <a
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                    className="text-xl font-semibold cursor-pointer select-none"
-                  >
-                    Gilang Arya
-                  </a>
-                  <div className="flex items-center gap-8 select-none mr-4">
-                    <ShinyText
-                      text="Credit"
-                      speed={10}
-                      delay={0}
-                      className="custom-class cursor-pointer"
-                      onClick={() => scrollToSection("credit")}
-                    />
-                    <ShinyText
-                      text="Project"
-                      speed={10}
-                      delay={3}
-                      className="custom-class cursor-pointer"
-                      onClick={() => scrollToSection("project")}
-                    />
-                  </div>
-                </div>
-              </div>
-              {/* ========== BATAS NAVBAR ========== */}
-
               {/* CONTENT-HOME */}
               <div className="container mx-auto flex flex-col justify-center items-center h-screen gap-20">
                 <div className="select-none">
@@ -151,6 +150,7 @@ export default function Home(): JSX.Element {
                   </button>
                 </div>
               </div>
+
               {/* ========== BATAS CONTENT HOME ========== */}
 
               {/* CONTENT-BLANK */}
@@ -165,7 +165,8 @@ export default function Home(): JSX.Element {
                   SCROLL DOWN
                 </p>
               </div>
-              {/*======= BATAS CONTENT BLANK =======*/}
+
+              {/* BATAS CONTENT BLANK */}
 
               {/* ANIMASI SCROLL FADE */}
               <div
@@ -232,7 +233,6 @@ export default function Home(): JSX.Element {
                       Adidas-Etalase-Store, Dashboard-App, Villa-Brooklyn
                     </p>
                   </div>
-
                   {/* CARD SWAP */}
                   <div className="h-[550px] relative w-full">
                     <CardSwap
@@ -360,6 +360,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* BATAS CONTENT HISTORY PROJECT */}
+
               <div className="w-full mx-auto text-white pr-2 pl-2">
                 <ScrollReveal
                   baseOpacity={0.1}
@@ -511,11 +512,11 @@ export default function Home(): JSX.Element {
                 {/*========= BATAS FOOTER ========*/}
               </FadeContent>
             </ClickSpark>
-            {/* ========= BATAS CLICK ========= */}
           </div>
+          {/* ========= BATAS CLICK ========= */}
         </div>
+        {/* ========= BATAS SCROLL ========= */}
       </div>
     </div>
-    /* ========= BATAS SCROLL ========= */
   );
 }
